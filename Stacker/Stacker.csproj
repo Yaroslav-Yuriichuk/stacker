@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F141F304-AC0C-4DCF-84AB-59C418B019F4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Stacker</RootNamespace>
+    <AssemblyName>Stacker</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>9.0</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Converters\ConnectionStateToColor.cs" />
+    <Compile Include="Converters\TimeSpanToTimeString.cs" />
+    <Compile Include="DI\CommonContainer.cs" />
+    <Compile Include="Extensions\ObservableCollectionExtension.cs" />
+    <Compile Include="Interfaces\IConnectedDesk.cs" />
+    <Compile Include="Interfaces\IDesk.cs" />
+    <Compile Include="Interfaces\IDevice.cs" />
+    <Compile Include="Interfaces\IViewModel.cs" />
+    <Compile Include="Models\ConnectedDesk.cs" />
+    <Compile Include="Models\Desk.cs" />
+    <Compile Include="Models\Timers\Implementations\BasicTimer.cs" />
+    <Compile Include="Models\Timers\Implementations\MultipleIntervalsSingleTickTimer.cs" />
+    <Compile Include="Models\Timers\Implementations\SingleTickTimer.cs" />
+    <Compile Include="Models\Timers\Interfaces\IMultipleIntervalsSingleTickTimer.cs" />
+    <Compile Include="Models\Timers\Interfaces\ISingleTickTimer.cs" />
+    <Compile Include="Models\Timers\Interfaces\ITimer.cs" />
+    <Compile Include="Services\Implementations\ApplicationWindowsService.cs" />
+    <Compile Include="Services\Implementations\AutomationService.cs" />
+    <Compile Include="Services\Implementations\Bluetooth\BluetoothService.Controlling.cs" />
+    <Compile Include="Services\Implementations\Bluetooth\BluetoothService.cs" />
+    <Compile Include="Services\Implementations\Bluetooth\BluetoothService.Monitoring.cs" />
+    <Compile Include="Services\Implementations\Bluetooth\BluetoothService.Scanning.cs" />
+    <Compile Include="Services\Implementations\ComputerModeMonitoringService.cs" />
+    <Compile Include="Services\Implementations\DayDataSavingService.cs" />
+    <Compile Include="Services\Implementations\DayDataService.cs" />
+    <Compile Include="Services\Interfaces\IApplicationWindowsService.cs" />
+    <Compile Include="Services\Interfaces\IAutomationService.cs" />
+    <Compile Include="Services\Interfaces\IBluetoothService.cs" />
+    <Compile Include="Services\Interfaces\IComputerModeMonitoringService.cs" />
+    <Compile Include="Services\Interfaces\IDayDataSavingService.cs" />
+    <Compile Include="Services\Interfaces\IDayDataService.cs" />
+    <Compile Include="Services\Interfaces\INotificationService.cs" />
+    <Compile Include="Services\Interfaces\IUserSettingsService.cs" />
+    <Compile Include="Services\Implementations\NotificationService.cs" />
+    <Compile Include="Services\Implementations\UserSettingsService.cs" />
+    <Compile Include="ViewModels\DesksViewModel.cs" />
+    <Compile Include="ViewModels\DeskViewModel.cs" />
+    <Compile Include="ViewModels\HeightSettingsViewModel.cs" />
+    <Compile Include="ViewModels\HistoryViewModel.cs" />
+    <Compile Include="ViewModels\IntervalsViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\NotificationViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="Views\HeightSettings.xaml.cs">
+      <DependentUpon>HeightSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Notification.xaml.cs">
+      <DependentUpon>Notification.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\HeightSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Notification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Assets\Images\DownArrow.png" />
+    <Resource Include="Views\Assets\Images\TriangleLeft.png" />
+    <Resource Include="Views\Assets\Images\TriangleRight.png" />
+    <Resource Include="Views\Assets\Images\UpArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>6.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
+      <Version>10.0.22000.196</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.WindowsRuntime">
+      <Version>4.6.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
