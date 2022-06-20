@@ -12,7 +12,7 @@ STACKER - desktop application for automatic control of the table with adjustable
 
 ## To download
 
-Download the repository as zip and unpack or navigate to desired folder and run 'git clone https://github.com/SlavikYur/table_controller.git'
+Download the repository as zip and unpack or navigate to desired folder and run 'git clone [https://github.com/SlavikYur/table_controller.git](https://github.com/Yaroslav-Yuriichuk/stacker.git)'
 
 ## To run
 
